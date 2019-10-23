@@ -1,14 +1,15 @@
 <?php
-	if(!file_exists("config/config.php")){
-		header('Location: install.php');
-	}else{
-		require_once("config/config.php");
-		require_once("config/functions.php");
-	}
+	require_once("config/config.php");
+	require_once("config/functions.php");
+	
 	session_start();
 	
 	/*error_reporting(E_ALL);
 	ini_set('display_errors', 1);*/
+	
+	if(isset($_SESSION['user'])){
+		$user = $_SESSION['user'];
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +62,7 @@
 							<a class="nav-link" href="?p=tcreate">Ticket erstellen</a>
 						</li>
 					<?php
-					if(getAdmin($_SESSION['user']) != "0"){
+					if(getAdmin($user) != "0"){
 						?>
 							<!-- Dropdown -->
 							<li class="nav-item dropdown">
@@ -71,6 +72,13 @@
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="?p=atlist">Tickets anzeigen</a>
 									<a class="dropdown-item" href="?p=auserlist">User anzeigen</a>
+									<?php
+										if($_SESSION["admin"] == md5("2")){
+											?>
+												<a class="dropdown-item" href="?p=asettings">Einstellungen</a>
+											<?php
+										}
+									?>
 								</div>
 							</li>
 						<?php
@@ -82,6 +90,7 @@
 					<?php
 				}
 			?>
+		</ul>
 		</ul>
 	</div>  
 </nav>
