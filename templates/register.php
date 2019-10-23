@@ -19,7 +19,7 @@
 					<input type="password" name="pw2" class="form-control" id="pwd">
 				</div>
 				<button type="submit" name="submit" class="btn btn-primary">Registrieren</button>
-			</form> 
+			</form>
 		<?php
 	} else {
 		$name = $_POST['name'];

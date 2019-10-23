@@ -153,6 +153,39 @@
 						echo "Error: " . $sql . "<br>" . $conn->error;
 					}
 					
+					$sql4 = "CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `setting` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+					
+					if ($conn->query($sql4) === TRUE) {
+						?>
+							<div class="alert alert-success">
+								<strong>!ERFOLG!</strong> Tabelle <u>settings</u> wurde erstellt.
+							</div>
+						<?php
+					} else {
+						echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+					
+					$sql5 = "INSERT INTO `settings` (`id`, `setting`, `value`) VALUES
+(1, 'host', 'smtp.mail-provider.com'),
+(2, 'user', 'email@mail-provider.com'),
+(3, 'pass', '1234567890'),
+(4, 'secure', 'tls'),
+(5, 'port', '587');";
+					
+					if ($conn->query($sql5) === TRUE) {
+						?>
+							<div class="alert alert-success">
+								<strong>!ERFOLG!</strong> Tabelleninhalt f&uuml;r <u>settings</u> wurde erstellt.
+							</div>
+						<?php
+					} else {
+						echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+					
 					?>
 						<h2><a href="?step=4">weiter</a></h2>
 					<?php

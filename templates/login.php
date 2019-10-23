@@ -10,7 +10,7 @@
 					<label for="pwd">Passwort:</label>
 					<input type="password" name="pass" class="form-control" id="pwd">
 				</div>
-				<button type="submit" name="submit" class="btn btn-primary">Anmelden</button>
+				<button type="submit" name="submit" class="btn btn-primary">Anmelden</button> <a href="?p=lostpw" class="btn btn-info" role="button">Passwort vergessen</a>
 			</form>
 		<?php
 	} else {
@@ -46,7 +46,7 @@
 						<label for="pwd">Passwort:</label>
 						<input type="password" name="pass" class="form-control" id="pwd">
 					</div>
-					<button type="submit" class="btn btn-primary">Anmelden</button>
+					<button type="submit" class="btn btn-primary">Anmelden</button> <a href="?p=lostpw" class="btn btn-info" role="button">Passwort vergessen</a>
 				</form>
 			<?php
 		}
