@@ -1,4 +1,7 @@
 <?php
+	if(!file_exists("config/config.php")){
+		header('Location: install.php');
+	}
 	require_once("config/config.php");
 	require_once("config/functions.php");
 	
