@@ -103,7 +103,13 @@
   `antwort` longtext NOT NULL,
   `erstellt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `antwortvonn` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `ticketantworten`
+  ADD PRIMARY KEY (`id`);
+  
+ALTER TABLE `ticketantworten`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;";
 					
 					if ($conn->query($sql1) === TRUE) {
 						?>
@@ -123,7 +129,13 @@
   `status` enum('0','1') NOT NULL DEFAULT '0',
   `erstellt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `erstellern` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `tickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`id`);";
 					
 					if ($conn->query($sql2) === TRUE) {
 						?>
@@ -141,7 +153,13 @@
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `admin` enum('0','1','2') NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;";
 					
 					if ($conn->query($sql3) === TRUE) {
 						?>
@@ -157,7 +175,13 @@
   `id` int(11) NOT NULL,
   `setting` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;";
 					
 					if ($conn->query($sql4) === TRUE) {
 						?>
